@@ -1,0 +1,246 @@
+:root {
+    --ff-barlow: 'Barlow', sans-serif;
+    --fw-base: 500;
+    --fw-bold: 600;
+
+    --clr-violet: hsl(263, 55%, 52%);
+    --clr-violet-light: hsl(264, 82%, 70%);
+    --clr-gray-blue-dark: hsl(217, 19%, 35%);
+    --clr-black-blue-dark: hsl(219, 29%, 14%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray-light: hsl(0, 0%, 81%);
+    --clr-gray-blue: hsl(210, 46%, 95%);
+
+    --clr-white-50: hsla(0, 0%, 100%, 0.5);
+    --clr-white-70: hsla(0, 0%, 100%, 0.7);
+    --clr-gray-blue-dark-50: hsl(217, 19%, 35%, 0.5);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+body {
+    font-family: var(--ff-barlow);
+    font-weight: var(--fw-base);
+    font-size: 0.8125rem;
+    background-color: var(--clr-gray-blue);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 1440px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.7rem;
+    border-radius: 0.5rem;
+    box-shadow: 8px 5px 15px 2px var(--clr-gray-light);
+    position: relative;
+    z-index: 1;
+}
+
+.card > p:nth-of-type(1) {
+    font-size: 1.25rem;
+    font-weight: var(--fw-bold);
+}
+
+.card:nth-of-type(1)::before {
+    content: '';
+    background-image: url('/images/bg-pattern-quotation.svg');
+    position: absolute;
+    top: 0;
+    right: 15%;
+    width: 104px;
+    height: 102px;
+    z-index: -1;
+}
+
+.card[data-bgColor="violet"] {
+    background-color: var(--clr-violet);
+}
+
+.card[data-bgColor="gray-blue-dark"] {
+    background-color: var(--clr-gray-blue-dark);
+}
+
+.card[data-bgColor="white"] {
+    background-color: var(--clr-white);
+}
+
+.card[data-bgColor="black-blue-dark"] {
+    background-color: var(--clr-black-blue-dark);
+}
+
+p[data-textColor="white"] {
+    color: var(--clr-white);
+}
+
+p[data-textColor="white-70"] {
+    color: var(--clr-white-70);
+}
+
+p[data-textColor="gray-blue"] {
+    color: var(--clr-gray-blue);
+}
+
+p[data-textColor="gray-blue-dark"] {
+    color: var(--clr-gray-blue-dark);
+}
+
+p[data-textColor="gray-blue-dark-50"] {
+    color: var(--clr-gray-blue-dark-50);
+}
+
+.sub-title[data-textColor="white"] {
+    color: var(--clr-white);
+}
+
+.sub-title[data-textColor="white-50"] {
+    color: var(--clr-white-50);
+}
+
+.sub-title[data-textColor="white-70"] {
+    color: var(--clr-white-70);
+}
+
+.sub-title[data-textColor="gray-blue"] {
+    color: var(--clr-gray-blue);
+}
+
+.sub-title[data-textColor="gray-blue-dark"] {
+    color: var(--clr-gray-blue-dark);
+}
+
+.sub-title[data-textColor="gray-blue-dark-50"] {
+    color: var(--clr-gray-blue-dark-50);
+}
+
+.title[data-textColor="white"] {
+    color: var(--clr-white);
+}
+
+.title[data-textColor="white-70"] {
+    color: var(--clr-white-70);
+}
+
+.title[data-textColor="gray-blue"] {
+    color: var(--clr-gray-blue);
+}
+
+.title[data-textColor="gray-blue-dark"] {
+    color: var(--clr-gray-blue-dark);
+}
+
+.title[data-textColor="gray-blue-dark-50"] {
+    color: var(--clr-gray-blue-dark-50);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    > img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+    }
+}
+
+.card-header > img[data-border="violet"] {
+    border: 2px solid var(--clr-violet);
+}
+
+.card-header>img[data-border="violet-light"] {
+    border: 2px solid var(--clr-violet-light);
+}
+
+.title {
+    font-size: 0.8125rem;
+}
+
+.sub-title {
+    font-size: 0.6875rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .wrapper {
+        display: grid;
+        align-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "c1 c1 c2 c5" "c3 c4 c4 c5"
+    }
+
+    .wrapper > .card:nth-child(1) {
+        grid-area: c1;
+    }
+
+        .wrapper>.card:nth-child(2) {
+            grid-area: c2;
+        }
+
+        .wrapper>.card:nth-child(3) {
+            grid-area: c3;
+        }
+
+        .wrapper>.card:nth-child(4) {
+            grid-area: c4;
+        }
+
+        .wrapper>.card:nth-child(5) {
+            grid-area: c5;
+        }
+
+        .wrapper>.card:nth-child(6) {
+            grid-area: c6;
+        }
+}
